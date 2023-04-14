@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "JakartaSans";
+  src: local("JakarataSans"),
+    url("../fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  background: #f7fafd;
+  font-family: JakartaSans;
+}
+
+.font-weight--bold {
+  font-weight: 700;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex.justify-between {
+  justify-content: space-between;
+}
+
+.d-none {
+  display: none;
+}
+
+// Margin & Padding spacers
+// usage: mt-4 -> margin-top: 4rem;
+$spacer: 10px !default;
+$sizes: 0, 1, 2, 3, 4, 5, 6;
+$directions: top, left, bottom, right;
+
+@each $direction in $directions {
+  @each $size in $sizes {
+    .m#{str-slice($direction, 1, 1)}-#{$size} {
+      margin-#{$direction}: #{$size * $spacer} !important;
+    }
+    .p#{str-slice($direction, 1, 1)}-#{$size} {
+      padding-#{$direction}: #{$size * $spacer} !important;
+    }
+    .m-#{$size} {
+      margin: #{$size * $spacer} !important;
+    }
+    .p-#{$size} {
+      padding: #{$size * $spacer} !important;
+    }
+  }
+  .m#{str-slice($direction, 1, 1)}-auto {
+    margin-#{$direction}: auto !important;
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.m-auto {
+  margin: auto;
+}

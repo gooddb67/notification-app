@@ -1,30 +1,57 @@
-import { useState } from "react";
+import Image from "next/image";
 
 interface NotificationProps {
   name: string;
   action: string;
   action_occurred: string;
   sub_action?: string;
-  key: number;
+  id: number;
+  className: string;
+  isRead: boolean;
+  imagePath: string;
+  subImagePath: string;
+
+  handleClick: (id: number) => void;
 }
 
 export default function Notification(props: NotificationProps) {
-  const { name, action, action_occurred, sub_action } = props;
-
-  const [isRead, setIsRead] = useState(false);
+  const {
+    name,
+    action,
+    action_occurred,
+    sub_action,
+    isRead,
+    id,
+    imagePath,
+    subImagePath,
+    handleClick,
+  } = props;
 
   return (
     <div
-      onClick={() => setIsRead(true)}
+      onClick={() => handleClick(id)}
       className={isRead ? "notification-wrapper read" : "notification-wrapper"}
     >
-      {" "}
-      <div className="notification-text">
-        <span className="font-weight--bold">{name}</span>{" "}
-        <span className="font-weight--bold">{action}</span>
+      <Image alt={name} src={`${imagePath}`} width={45} height={45} />
+      <div className="inner-content">
+        {" "}
+        <div className="inner-content-string">
+          <span className="name font-weight--bold">{name}</span>{" "}
+          <span className="action">{action}</span>{" "}
+          {!isRead ? <span className="dot"></span> : null}
+        </div>
+        <div className="action-occurred">{action_occurred}</div>
+        {sub_action ? <div className="sub-action">{sub_action}</div> : null}
       </div>
-      <div>{action_occurred}</div>
-      <div>{sub_action}</div>
+      {subImagePath ? (
+        <Image
+          className="ml-auto"
+          alt={name}
+          src={`${subImagePath}`}
+          width={45}
+          height={45}
+        />
+      ) : null}
     </div>
   );
 }

@@ -1,0 +1,112 @@
+.page-wrapper {
+  background-color: #ffffff;
+  box-shadow: 0px 20px 60px rgba(73, 97, 168, 0.05);
+  border-radius: 15px;
+  padding: 33px 32px 17px;
+  max-width: 730px;
+  margin: auto;
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-size: 1em;
+    color: #5e6778;
+    cursor: pointer;
+
+    &:hover {
+      color: #0a327b;
+    }
+  }
+
+  .notification-count {
+    display: inline-block;
+    background-color: #0a327b;
+    border-radius: 4px;
+    padding: 0 9px;
+    color: #ffffff;
+    margin-left: 10px;
+  }
+
+  .notification-heading {
+    font-weight: 700;
+    font-size: 24px;
+    display: inline-block;
+  }
+
+  .notification-wrapper {
+    background: #f7fafd;
+    border-radius: 8px;
+    padding: 18px;
+    transition: 0.25s;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+
+    .inner-content {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      color: #5e6778;
+
+      .inner-content-string {
+        .dot {
+          position: relative;
+
+          &:after {
+            content: "";
+            position: absolute;
+            right: -17px;
+            width: 8px;
+            height: 8px;
+            background-color: #f65552;
+            display: block;
+            border-radius: 50px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    .notification-top {
+      display: flex;
+      align-items: center;
+    }
+
+    .sub-action {
+      border: 1px solid #dde7ee;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: #ffffff;
+      margin-top: 15px;
+
+      &:hover {
+        background-color: #f7fafd;
+      }
+    }
+
+    &.read {
+      box-shadow: none;
+      background-color: transparent;
+      cursor: initial;
+
+      &:hover {
+        filter: none;
+      }
+    }
+
+    &:hover {
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+  }
+}
+
+.name {
+  cursor: pointer;
+  color: #1c202b;
+
+  &:hover {
+    color: #0a327b;
+  }
+}
