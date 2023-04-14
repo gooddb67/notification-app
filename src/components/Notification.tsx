@@ -6,10 +6,9 @@ interface NotificationProps {
   action_occurred: string;
   sub_action?: string;
   id: number;
-  className: string;
   isRead: boolean;
   imagePath: string;
-  subImagePath: string;
+  subImagePath?: string;
 
   handleClick: (id: number) => void;
 }
