@@ -1,5 +1,5 @@
 import Notification from "../components/Notification";
-import notificationData from "./data";
+import notificationData from "../data";
 import { useState } from "react";
 
 export default function Notifications() {
